@@ -1,10 +1,18 @@
 //RESUELVE LOS EJERCICIOS AQUI
-
+// - [ ] 1.- Dado el array **numbers** cuyo valor sea [4, 5, 6, 7, 8, 9, 10], crea una 
+// función **elevados** que devuelva un array con el cuadrado de cada uno de los elementos.
 const numbers = [4, 5, 6, 7, 8, 9, 10];
-function elevados() {
-  return numbers.map((num) => Math.pow(num, num));
+function elevados(arr) {
+  return arr.map(num => Math.pow(num, num));
 }
 console.log(elevados(numbers));
+
+
+
+
+//******************************************** */
+// - [ ] 2.- Dado el array **foodList** con valor ['Pizza', 'Ramen', 'Paella', 'Entrecot'], 
+// generar un segundo array que consiga generar de salida el resultado esperado.
 
 const foodList = ["Pizza", "Ramen", "Paella", "Entrecot"];
 
@@ -22,6 +30,20 @@ const result2 = foodList.map((food) => {
 
 console.log(result2);
 
+/*const foodList = ['Pizza', 'Ramen', 'Paella', 'Entrecot'];
+
+const frases = foodList.map((food, i) => {
+  let countries = ["Italia", "Japón", "Valencia", "--"];
+  return i != 3
+            ? `Como soy de ${countries[i]}, amo comer ${food}`
+            : "Aunque no como carne, el Entrecot es sabroso";
+});
+
+console.log(frases);*/
+
+//**************************************************** */
+// [ ] 3.- Dado el  array **staff**, crear un segundo array que forme frases como
+//  en el ejemplo accediendo a las propiedades del objeto proporcionado:
 const staff = [
   {
     name: "Pepe",
@@ -50,10 +72,23 @@ const result3 = staff.map(
 );
 console.log(result3);
 
+//************************************************************** */
+// [ ] 4.- Crea un segundo array result4 a partir del array numbers2 que devuelva solo los impares
+
+
 const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let result4 = numbers2.filter((num) => num % 2).map((elemento) => elemento);
 console.log(result4);
+
+//************************************************************** */
+// - [ ] 5.- Dado el array foodList2, genera un segundo array result5 que filtre los 
+// platos veganos y saque una sentencia como la del ejemplo
+// ```
+// ['Que rico Tempeh me voy a comer!',
+// 'Que rica Tofu burguer me voy a comer!']
+// ```
+
 
 const foodList2 = [
   {
@@ -76,12 +111,16 @@ const foodList2 = [
 
 const veganos = (food) => food.isVeggie;
 const result5 = foodList2
+
   .filter(veganos)
   .map((food) => 
     food.name == "Tempeh"
         ? "Que rico " + food.name + " me voy a comer!" 
         : "Que rica " + food.name + " me voy a comer!");
 console.log(result5);
+
+//************************************************************** */
+// - [ ] 6.- Dado el array **inventory**, devolver un array con los nombres de los elementos que valgan más de 300 euros.
 
 const inventory = [
   {
@@ -106,6 +145,8 @@ const result6 = inventory
   .map((producto) => producto.name);
 console.log(result6);
 
+//************************************************************** */
+// [ ] 7.- Concatena todos los elementos del array con reduce para que devuelva una sola frase
 const sentenceElements = [
     'Me',
     'llamo',
@@ -118,14 +159,17 @@ const sentenceElements = [
     'con',
     'javascript'
   ];
-const result8= sentenceElements.reduce( (prev, curr) => prev +' '+ curr )
-console.log(result7)
+result8 = sentenceElements.reduce((prev, curr) => prev +' '+ curr ); 
+console.log(result8)
 
-const numeros=[39, 2, 4, 25, 62]
-let result7= numeros.reduce( (a, b) => a*b)
-    
+//************************************************************** */
+// - [ ] 6.- Dado el siguiente array **numeros** [39, 2, 4, 25, 62], obten la multiplicación de todos los elementos del array
+const numeros3=[39, 2, 4, 25, 62]
+let result7= numeros3.reduce( (a, b) => a*b)
 console.log(result7);
 
+//************************************************************** */
+// [ ] 8.- Obtener el monto total de los elementos que pertenecen a catergory "code" en el siguiente array.
 const books = [
     {
       name: ' JS for dummies',
@@ -153,3 +197,9 @@ const books = [
     }
   ];
 
+  const totalcodeBooks=(books,category) =>books
+  .filter(book=>book.category ===category)
+  .reduce((sum,book)=>sum+ book.price,0)
+ const total= totalcodeBooks(books,'code')
+ console.log(total)
+  
